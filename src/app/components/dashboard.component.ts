@@ -24,13 +24,13 @@ import { DashboardFacade } from '../services/dashboard-facade.service';
         <h2 class="text-xl font-semibold">User Dashboard</h2>
         <div class="flex items-center gap-2">
           <button
-            class="px-3 py-1.5 rounded-md bg-slate-900 text-white text-sm"
+            class="px-3 py-1.5 rounded-md bg-slate-900 text-white text-sm cursor-pointer"
             (click)="reloadWidgets()"
           >
             Reload
           </button>
           <button
-            class="px-3 py-1.5 rounded-md border text-sm"
+            class="px-3 py-1.5 rounded-md border text-sm cursor-pointer"
             (click)="toggleSettings()"
           >
             {{ showSettings() ? 'Close' : 'Customize' }}
@@ -85,7 +85,7 @@ import { DashboardFacade } from '../services/dashboard-facade.service';
                 </p>
               </div>
               <button
-                class="px-2.5 py-1.5 text-xs rounded-md bg-slate-100 hover:bg-slate-200"
+                class="px-2.5 py-1.5 text-xs rounded-md bg-slate-100 hover:bg-slate-200 cursor-pointer"
                 (click)="toggleSettings()"
               >
                 Close
@@ -95,7 +95,7 @@ import { DashboardFacade } from '../services/dashboard-facade.service';
               <div class="md:col-span-2">
                 <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
                   <button
-                    class="rounded-lg p-3 text-left text-sm bg-slate-50 hover:bg-slate-100 transition"
+                    class="rounded-lg p-3 text-left text-sm bg-slate-50 hover:bg-slate-100 transition cursor-pointer"
                     [class.ring-1]="selectedSet().has('weather')"
                     (click)="
                       toggleWidget('weather', !selectedSet().has('weather'))
@@ -107,7 +107,7 @@ import { DashboardFacade } from '../services/dashboard-facade.service';
                     </div>
                   </button>
                   <button
-                    class="rounded-lg p-3 text-left text-sm bg-slate-50 hover:bg-slate-100 transition"
+                    class="rounded-lg p-3 text-left text-sm bg-slate-50 hover:bg-slate-100 transition cursor-pointer"
                     [class.ring-1]="selectedSet().has('tasks')"
                     (click)="toggleWidget('tasks', !selectedSet().has('tasks'))"
                   >
@@ -115,7 +115,7 @@ import { DashboardFacade } from '../services/dashboard-facade.service';
                     <div class="text-xs text-slate-600">Sample to‑dos list</div>
                   </button>
                   <button
-                    class="rounded-lg p-3 text-left text-sm bg-slate-50 hover:bg-slate-100 transition"
+                    class="rounded-lg p-3 text-left text-sm bg-slate-50 hover:bg-slate-100 transition cursor-pointer"
                     [class.ring-1]="selectedSet().has('sales')"
                     (click)="toggleWidget('sales', !selectedSet().has('sales'))"
                   >
@@ -123,7 +123,7 @@ import { DashboardFacade } from '../services/dashboard-facade.service';
                     <div class="text-xs text-slate-600">7‑day mini chart</div>
                   </button>
                   <button
-                    class="rounded-lg p-3 text-left text-sm bg-slate-50 hover:bg-slate-100 transition"
+                    class="rounded-lg p-3 text-left text-sm bg-slate-50 hover:bg-slate-100 transition cursor-pointer"
                     [class.ring-1]="selectedSet().has('news')"
                     (click)="toggleWidget('news', !selectedSet().has('news'))"
                   >
@@ -131,7 +131,7 @@ import { DashboardFacade } from '../services/dashboard-facade.service';
                     <div class="text-xs text-slate-600">HN front page</div>
                   </button>
                   <button
-                    class="rounded-lg p-3 text-left text-sm bg-slate-50 hover:bg-slate-100 transition"
+                    class="rounded-lg p-3 text-left text-sm bg-slate-50 hover:bg-slate-100 transition cursor-pointer"
                     [class.ring-1]="selectedSet().has('github')"
                     (click)="
                       toggleWidget('github', !selectedSet().has('github'))
