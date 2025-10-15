@@ -168,6 +168,9 @@ export class DashboardComponent {
 
   private facade = inject(DashboardFacade);
 
+  // Prevent duplicate renders from racing requests
+  private loadSequence = 0;
+
   showSettings = this.facade.showSettings;
   isLoading = this.facade.isLoading;
   errorMessage = this.facade.errorMessage;
@@ -197,10 +200,17 @@ export class DashboardComponent {
   }
 
   reloadWidgets() {
-    this.widgetContainer.clear();
+    const seq = ++this.loadSequence;
     this.facade.loadAll().subscribe({
-      next: () => this.renderSelected(),
-      error: () => this.facade.errorMessage.set('Failed to load data'),
+      next: () => {
+        if (seq !== this.loadSequence) return; // stale response, ignore
+        this.widgetContainer.clear();
+        this.renderSelected();
+      },
+      error: () => {
+        if (seq !== this.loadSequence) return;
+        this.facade.errorMessage.set('Failed to load data');
+      },
     });
   }
 
